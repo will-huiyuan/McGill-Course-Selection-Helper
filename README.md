@@ -1,4 +1,4 @@
-# McGill-Course-Selection-Helper
+# McGill-Course-Selection-Helper 麦吉尔选课助手
   ## package requirement
    you should install beautifulsoup4, use `pip install beautifulsoup4` to install it.
    
