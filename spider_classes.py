@@ -110,12 +110,14 @@ def get_all_courses(start_page=0, end_page=9999):
     """
     full_course_list = []
     recent_page = start_page
+    traversed = 0
     while True:
         url = f"https://www.mcgill.ca/study/2022-2023/courses/search?page={recent_page}"
         response = requests.get(url)
         # initialize BS
         soup = BS(response.text, "lxml")
         recent_page += 1
+        traversed += 1
         class_block = soup.find_all(class_=f"views-row")
         print("page:", recent_page)
         if recent_page == end_page or class_block == []:
@@ -123,7 +125,7 @@ def get_all_courses(start_page=0, end_page=9999):
         for course_ in get_courses(url):
             full_course_list.append(course_)
             append(course_)
-    print(f"The traversal is complete. {recent_page - 1} pages have been traversed")
+    print(f"The traversal is complete. {traversed-1} pages have been traversed")
     return full_course_list
 
 
