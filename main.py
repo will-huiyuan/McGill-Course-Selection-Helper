@@ -1,5 +1,3 @@
-import check_package
-check_package.check_package()
 from spider_classes import *
 from insirt_to_excel import *
 
